@@ -2,12 +2,13 @@ plugin: drupal
 subDirectory: docroot
 
 steps:
-  - name: Composer setup
+  - name: "Composer setup"
     command: "composer selfupdate"
     command: "composer install"
     command: "export PATH=$PATH:$SRC_DIR/vendor/bin"
     #command: "nvm install 4.4.1"
     #command: "nvm use 4.4.1"
     #command: "rm -f ~/.drush/cache/download/*---updates.drupal.org-release-history-*"
+  - name: "Run test"
     command: "git diff --exit-code"
     command: "./bolt.sh -Dbehat.run-server=true -Dbehat.launch-phantom=true build:validate:test"
