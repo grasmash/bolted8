@@ -14,5 +14,5 @@ steps:
   - plugin: Script
     name: Run tests
     script:
-      - "git diff --exit-code"
+      # - "git diff --exit-code"
       - "./bolt.sh -Dbehat.run-server=true -Dbehat.launch-phantom=true build:validate:test"
